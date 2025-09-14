@@ -114,12 +114,15 @@ const TeamManagement: React.FC = () => {
                   <td>{team.name}</td>
                   <td>{team.description}</td>
                   <td>
-                    {team.members.map((member) => (
-                      <span key={member.id} className="team-member-badge">
-                        {member.firstName} {member.lastName}
-                      </span>
-                    ))}
-                    {team.members.length === 0 && <span>No members</span>}
+                    {team.members && team.members.length > 0 ? (
+                      team.members.map((member) => (
+                        <span key={member.id} className="team-member-badge">
+                          {member.firstName} {member.lastName}
+                        </span>
+                      ))
+                    ) : (
+                      <span>No members</span>
+                    )}
                   </td>
                   <td>{new Date(team.createdAt).toLocaleDateString()}</td>
                   <td>

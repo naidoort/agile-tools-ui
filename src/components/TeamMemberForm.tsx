@@ -32,8 +32,8 @@ const TeamMemberForm: React.FC<TeamMemberFormProps> = ({ member, teams, onSubmit
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.firstName.trim() || !formData.lastName.trim() || !formData.email.trim()) {
-      setError('First name, last name, and email are required');
+    if (!formData.firstName.trim() || !formData.lastName.trim()) {
+      setError('First name and last name are required');
       return;
     }
 
@@ -99,7 +99,7 @@ const TeamMemberForm: React.FC<TeamMemberFormProps> = ({ member, teams, onSubmit
           </div>
 
           <div className="form-group">
-            <label htmlFor="email">Email *</label>
+            <label htmlFor="email">Email</label>
             <input
               type="email"
               id="email"
@@ -107,7 +107,6 @@ const TeamMemberForm: React.FC<TeamMemberFormProps> = ({ member, teams, onSubmit
               value={formData.email}
               onChange={handleChange}
               className="form-control"
-              required
               disabled={loading}
             />
           </div>
